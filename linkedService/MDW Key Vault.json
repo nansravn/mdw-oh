@@ -1,0 +1,10 @@
+{
+	"name": "MDW Key Vault",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://mdw-oh-keyvault.vault.azure.net/"
+		}
+	}
+}
