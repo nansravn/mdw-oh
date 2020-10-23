@@ -53,7 +53,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SourceDataset_6hh",
+									"referenceName": "Sales_DB",
 									"type": "DatasetReference",
 									"parameters": {
 										"cw_table": "@item().source.table"
@@ -62,7 +62,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DestinationDataset_6hh",
+									"referenceName": "Sales_ADLS",
 									"type": "DatasetReference",
 									"parameters": {
 										"cw_fileName": "@item().destination.fileName"

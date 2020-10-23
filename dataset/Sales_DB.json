@@ -1,5 +1,5 @@
 {
-	"name": "SourceDataset_6hh",
+	"name": "Sales_DB",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Cloud Sales DB",

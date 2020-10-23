@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_6hh",
+	"name": "Sales_ADLS",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS Gen2",
