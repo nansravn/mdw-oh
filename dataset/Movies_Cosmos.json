@@ -1,5 +1,5 @@
 {
-	"name": "SourceDataset_3n0",
+	"name": "Movies_Cosmos",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Movies DB",

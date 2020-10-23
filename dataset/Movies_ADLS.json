@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_3n0",
+	"name": "Movies_ADLS",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS Gen2",

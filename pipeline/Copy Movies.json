@@ -43,13 +43,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_3n0",
+						"referenceName": "Movies_Cosmos",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_3n0",
+						"referenceName": "Movies_ADLS",
 						"type": "DatasetReference"
 					}
 				]
