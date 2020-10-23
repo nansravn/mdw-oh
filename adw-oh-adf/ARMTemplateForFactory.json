@@ -123,7 +123,7 @@
 									"table": "Addresses"
 								},
 								"destination": {
-									"fileName": "dboAddresses.txt"
+									"fileName": "dboAddresses.parquet"
 								}
 							},
 							{
@@ -131,7 +131,7 @@
 									"table": "Customers"
 								},
 								"destination": {
-									"fileName": "dboCustomers.txt"
+									"fileName": "dboCustomers.parquet"
 								}
 							},
 							{
@@ -139,7 +139,7 @@
 									"table": "OrderDetails"
 								},
 								"destination": {
-									"fileName": "dboOrderDetails.txt"
+									"fileName": "dboOrderDetails.parquet"
 								}
 							},
 							{
@@ -147,7 +147,7 @@
 									"table": "Orders"
 								},
 								"destination": {
-									"fileName": "dboOrders.txt"
+									"fileName": "dboOrders.parquet"
 								}
 							}
 						]
