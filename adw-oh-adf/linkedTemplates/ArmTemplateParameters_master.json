@@ -5,8 +5,20 @@
 		"factoryName": {
 			"value": "adw-oh-adf"
 		},
+		"ADLS Gen2_accountKey": {
+			"value": ""
+		},
 		"Cloud Sales DB_connectionString": {
 			"value": ""
+		},
+		"Cloud Streaming DB_connectionString": {
+			"value": ""
+		},
+		"Movies DB_connectionString": {
+			"value": ""
+		},
+		"ADLS Gen2_properties_typeProperties_url": {
+			"value": "https://mdwohadlsgen2.dfs.core.windows.net"
 		},
 		"MDW Key Vault_properties_typeProperties_baseUrl": {
 			"value": "https://mdw-oh-keyvault.vault.azure.net/"

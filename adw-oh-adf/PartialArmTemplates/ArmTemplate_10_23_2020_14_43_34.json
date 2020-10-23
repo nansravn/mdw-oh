@@ -6,30 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "adw-oh-adf"
-		},
-		"ADLS Gen2_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'ADLS Gen2'"
-		},
-		"Cloud Sales DB_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'Cloud Sales DB'"
-		},
-		"Cloud Streaming DB_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'Cloud Streaming DB'"
-		},
-		"Movies DB_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'Movies DB'"
-		},
-		"ADLS Gen2_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://mdwohadlsgen2.dfs.core.windows.net"
-		},
-		"MDW Key Vault_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://mdw-oh-keyvault.vault.azure.net/"
 		}
 	},
 	"variables": {
@@ -324,15 +300,13 @@
 						"inputs": [
 							{
 								"referenceName": "Movies_Cosmos",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "Movies_ADLS",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -423,9 +397,7 @@
 					"collectionName": "movies"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Movies DB')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Sales_ADLS')]",
@@ -486,9 +458,7 @@
 					}
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Cloud Sales DB')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Streaming_ADLS')]",
@@ -549,9 +519,7 @@
 					}
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Cloud Streaming DB')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ADLS Gen2')]",
@@ -561,83 +529,11 @@
 				"annotations": [],
 				"type": "AzureBlobFS",
 				"typeProperties": {
-					"url": "[parameters('ADLS Gen2_properties_typeProperties_url')]",
+					"url": "https://mdwohadlsgen2.dfs.core.windows.net",
 					"accountKey": {
 						"type": "SecureString",
-						"value": "[parameters('ADLS Gen2_accountKey')]"
+						"value": "**********"
 					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Cloud Sales DB')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('Cloud Sales DB_connectionString')]",
-					"password": {
-						"type": "AzureKeyVaultSecret",
-						"store": {
-							"referenceName": "MDW Key Vault",
-							"type": "LinkedServiceReference"
-						},
-						"secretName": "sqlpwd"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/MDW Key Vault')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Cloud Streaming DB')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('Cloud Streaming DB_connectionString')]",
-					"password": {
-						"type": "AzureKeyVaultSecret",
-						"store": {
-							"referenceName": "MDW Key Vault",
-							"type": "LinkedServiceReference"
-						},
-						"secretName": "sqlpwd"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/MDW Key Vault')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/MDW Key Vault')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureKeyVault",
-				"typeProperties": {
-					"baseUrl": "[parameters('MDW Key Vault_properties_typeProperties_baseUrl')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Movies DB')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "CosmosDb",
-				"typeProperties": {
-					"connectionString": "[parameters('Movies DB_connectionString')]"
 				}
 			},
 			"dependsOn": []
