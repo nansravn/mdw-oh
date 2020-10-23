@@ -1,0 +1,24 @@
+{
+	"name": "SourceDataset_c1k",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Cloud Sales DB",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_table": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().cw_table",
+				"type": "Expression"
+			}
+		}
+	}
+}
