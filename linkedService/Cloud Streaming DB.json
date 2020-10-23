@@ -1,0 +1,19 @@
+{
+	"name": "Cloud Streaming DB",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=southridge-sqlserver-tgduv2hko7nrg.database.windows.net;Initial Catalog=CloudStreaming;User ID=southridge",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "MDW Key Vault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "sqlpwd"
+			}
+		}
+	}
+}
