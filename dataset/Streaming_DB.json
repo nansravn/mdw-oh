@@ -1,5 +1,5 @@
 {
-	"name": "SourceDataset_g4b",
+	"name": "Streaming_DB",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Cloud Streaming DB",

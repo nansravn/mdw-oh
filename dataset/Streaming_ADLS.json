@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_g4b",
+	"name": "Streaming_ADLS",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS Gen2",

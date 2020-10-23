@@ -53,7 +53,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SourceDataset_g4b",
+									"referenceName": "Streaming_DB",
 									"type": "DatasetReference",
 									"parameters": {
 										"cw_table": "@item().source.table"
@@ -62,7 +62,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DestinationDataset_g4b",
+									"referenceName": "Streaming_ADLS",
 									"type": "DatasetReference",
 									"parameters": {
 										"cw_fileName": "@item().destination.fileName"
