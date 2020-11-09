@@ -1,9 +1,9 @@
 {
-	"name": "Copy CloudSales",
+	"name": "CopyPipeline_VanArsdel",
 	"properties": {
 		"activities": [
 			{
-				"name": "ForEach_6hh",
+				"name": "ForEach_zui",
 				"type": "ForEach",
 				"dependsOn": [],
 				"userProperties": [],
@@ -14,7 +14,7 @@
 					},
 					"activities": [
 						{
-							"name": "Copy_6hh",
+							"name": "Copy_zui",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -31,21 +31,23 @@
 								},
 								{
 									"name": "Destination",
-									"value": "bronze/sales/@{item().destination.fileName}"
+									"value": "bronze/vanarsdel/@{item().destination.fileName}"
 								}
 							],
 							"typeProperties": {
 								"source": {
-									"type": "AzureSqlSource",
+									"type": "SqlServerSource",
 									"partitionOption": "None"
 								},
 								"sink": {
-									"type": "ParquetSink",
+									"type": "DelimitedTextSink",
 									"storeSettings": {
 										"type": "AzureBlobFSWriteSettings"
 									},
 									"formatSettings": {
-										"type": "ParquetWriteSettings"
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
 									}
 								},
 								"enableStaging": false,
@@ -53,7 +55,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "Sales_DB",
+									"referenceName": "VanArsdel_SQLServer",
 									"type": "DatasetReference",
 									"parameters": {
 										"cw_table": "@item().source.table"
@@ -62,7 +64,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "Sales_ADLS",
+									"referenceName": "VanArsdel_ADLS",
 									"type": "DatasetReference",
 									"parameters": {
 										"cw_fileName": "@item().destination.fileName"
@@ -80,10 +82,10 @@
 				"defaultValue": [
 					{
 						"source": {
-							"table": "Addresses"
+							"table": "Actors"
 						},
 						"destination": {
-							"fileName": "dboAddresses.parquet"
+							"fileName": "dboActors.csv"
 						}
 					},
 					{
@@ -91,23 +93,39 @@
 							"table": "Customers"
 						},
 						"destination": {
-							"fileName": "dboCustomers.parquet"
+							"fileName": "dboCustomers.csv"
 						}
 					},
 					{
 						"source": {
-							"table": "OrderDetails"
+							"table": "MovieActors"
 						},
 						"destination": {
-							"fileName": "dboOrderDetails.parquet"
+							"fileName": "dboMovieActors.csv"
 						}
 					},
 					{
 						"source": {
-							"table": "Orders"
+							"table": "Movies"
 						},
 						"destination": {
-							"fileName": "dboOrders.parquet"
+							"fileName": "dboMovies.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "OnlineMovieMappings"
+						},
+						"destination": {
+							"fileName": "dboOnlineMovieMappings.csv"
+						}
+					},
+					{
+						"source": {
+							"table": "Transactions"
+						},
+						"destination": {
+							"fileName": "dboTransactions.csv"
 						}
 					}
 				]
