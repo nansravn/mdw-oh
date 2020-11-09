@@ -17,6 +17,9 @@
 		"Movies DB_connectionString": {
 			"value": ""
 		},
+		"SqlServer1_connectionString": {
+			"value": ""
+		},
 		"ADLS Gen2_properties_typeProperties_url": {
 			"value": "https://mdwohadlsgen2.dfs.core.windows.net"
 		},
