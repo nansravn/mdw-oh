@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Cloud Streaming DB'"
 		},
+		"Fourth Coffee FS_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Fourth Coffee FS'"
+		},
 		"Movies DB_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Movies DB'"
@@ -30,6 +34,14 @@
 		"ADLS Gen2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://mdwohadlsgen2.dfs.core.windows.net"
+		},
+		"Fourth Coffee FS_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Rentals"
+		},
+		"Fourth Coffee FS_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "openhackadmin"
 		},
 		"MDW Key Vault_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -74,6 +86,9 @@
 					"Cloud Streaming DB_connectionString": {
 						"value": "[parameters('Cloud Streaming DB_connectionString')]"
 					},
+					"Fourth Coffee FS_password": {
+						"value": "[parameters('Fourth Coffee FS_password')]"
+					},
 					"SqlServer1_connectionString": {
 						"value": "[parameters('SqlServer1_connectionString')]"
 					},
@@ -82,10 +97,36 @@
 					},
 					"MDW Key Vault_properties_typeProperties_baseUrl": {
 						"value": "[parameters('MDW Key Vault_properties_typeProperties_baseUrl')]"
+					},
+					"Fourth Coffee FS_properties_typeProperties_host": {
+						"value": "[parameters('Fourth Coffee FS_properties_typeProperties_host')]"
+					},
+					"Fourth Coffee FS_properties_typeProperties_userId": {
+						"value": "[parameters('Fourth Coffee FS_properties_typeProperties_userId')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "adw-oh-adf_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adw-oh-adf_ArmTemplate_0')]"
+			]
 		}
 	]
 }

@@ -14,6 +14,9 @@
 		"Cloud Streaming DB_connectionString": {
 			"value": ""
 		},
+		"Fourth Coffee FS_password": {
+			"value": ""
+		},
 		"Movies DB_connectionString": {
 			"value": ""
 		},
@@ -22,6 +25,12 @@
 		},
 		"ADLS Gen2_properties_typeProperties_url": {
 			"value": "https://mdwohadlsgen2.dfs.core.windows.net"
+		},
+		"Fourth Coffee FS_properties_typeProperties_host": {
+			"value": "C:\\Rentals"
+		},
+		"Fourth Coffee FS_properties_typeProperties_userId": {
+			"value": "openhackadmin"
 		},
 		"MDW Key Vault_properties_typeProperties_baseUrl": {
 			"value": "https://mdw-oh-keyvault.vault.azure.net/"
