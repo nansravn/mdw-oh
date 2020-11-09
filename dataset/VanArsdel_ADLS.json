@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_zui",
+	"name": "VanArsdel_ADLS",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS Gen2",
