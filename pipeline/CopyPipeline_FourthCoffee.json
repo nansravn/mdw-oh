@@ -50,13 +50,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_eip",
+						"referenceName": "FourthCoffee_FS",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_eip",
+						"referenceName": "FourthCoffee_ADLS",
 						"type": "DatasetReference"
 					}
 				]
