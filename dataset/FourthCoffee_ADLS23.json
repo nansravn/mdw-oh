@@ -1,5 +1,5 @@
 {
-	"name": "FourthCoffee_ADLS2",
+	"name": "FourthCoffee_ADLS23",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS Gen2",
