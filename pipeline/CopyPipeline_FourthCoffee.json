@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_eip",
+				"name": "Copy_FourthCoffee",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
