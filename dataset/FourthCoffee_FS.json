@@ -1,0 +1,16 @@
+{
+	"name": "FourthCoffee_FS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Fourth Coffee FS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation"
+			}
+		}
+	}
+}
