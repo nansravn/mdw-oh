@@ -1,0 +1,6 @@
+{
+	"name": "integrationRuntime-SQLVanArsdell",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
